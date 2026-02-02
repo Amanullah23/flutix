@@ -1,65 +1,110 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { Card, CardContent } from "./components/ui/card";
+import { Button } from "./components/ui/button";
+import ContactUs from "./contact/page";
+import { Smartphone, Layers, Rocket } from "lucide-react";
+import { motion } from "framer-motion";
+import { JSX } from "react";
+
+// Import the Navbar component
+import Navbar from "./components/navbar";
+
+export default function Home(): JSX.Element {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      {/* Navbar */}
+      <Navbar />
+
+      <main className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white pt-16">
+        {/* Hero Section */}
+        <section className="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">Flutix</h1>
+            <p className="text-lg md:text-xl mb-8 text-white/90">
+              We build high‑performance{" "}
+              <span className="font-semibold">Flutter mobile apps</span> and modern
+              digital products that scale.
+            </p>
+            <div className="flex gap-4">
+              <Button size="lg" className="rounded-2xl">
+                Get Started
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-2xl text-white border-white"
+              >
+                Contact Us
+              </Button>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
           >
-            Documentation
-          </a>
-        </div>
+            <Card className="rounded-2xl shadow-xl bg-white/10 backdrop-blur border-white/20">
+              <CardContent className="p-8">
+                <p className="text-xl font-semibold">Build Fast. Scale Smart.</p>
+                <p className="mt-4 text-white/80">
+                  One codebase. Multiple platforms. Maximum impact.
+                </p>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </section>
+
+        {/* Services Section */}
+        <section className="bg-white text-gray-900 py-20">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-12">What We Do</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="rounded-2xl shadow">
+                <CardContent className="p-6">
+                  <Smartphone className="h-10 w-10 text-indigo-600 mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Flutter Apps</h3>
+                  <p>
+                    Cross‑platform Android & iOS apps with beautiful UI and smooth performance.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="rounded-2xl shadow">
+                <CardContent className="p-6">
+                  <Layers className="h-10 w-10 text-indigo-600 mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">UI / UX Design</h3>
+                  <p>
+                    Clean, modern and user‑focused designs that convert users into customers.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="rounded-2xl shadow">
+                <CardContent className="p-6">
+                  <Rocket className="h-10 w-10 text-indigo-600 mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Startup Launch</h3>
+                  <p>
+                    From idea to production — we help you launch fast and grow confidently.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+        {/* Contact Section */}
+        <ContactUs />
+
+        {/* Footer */}
+        <footer className="text-center py-8 text-black bg-blue-100 mt-12">
+          © {new Date().getFullYear()} Flutix. All rights reserved.
+        </footer>
       </main>
-    </div>
+    </>
   );
 }
