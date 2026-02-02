@@ -4,6 +4,7 @@ import { Card, CardContent } from "./components/ui/card";
 import { Button } from "./components/ui/button";
 import ContactUs from "./contact/page";
 import AboutUs from "./about/page";
+import Footer from "./components/footer";
 import { Smartphone, Layers, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 import { JSX } from "react";
@@ -106,11 +107,9 @@ export default function Home(): JSX.Element {
         <AboutUs />
         {/* Contact Section */}
         <ContactUs />
-
+                
         {/* Footer */}
-        <footer className="text-center py-8 text-black bg-blue-100 mt-12">
-          © {new Date().getFullYear()} Flutix. All rights reserved.
-        </footer>
+        <Footer />
       </main>
     </>
   );

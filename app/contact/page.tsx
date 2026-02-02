@@ -5,7 +5,10 @@ import { motion } from "framer-motion";
 
 export default function ContactUs() {
   return (
-    <section className="bg-linear-to-br from-indigo-600 via-purple-600 to-pink-600  text-white py-10" id="contact">
+    <section
+      className="bg-linear-to-br from-indigo-600 via-purple-600 to-pink-600  text-white py-10"
+      id="contact"
+    >
       <div className="max-w-4xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -43,6 +46,32 @@ export default function ContactUs() {
             </Button>
           </form>
         </motion.div>
+      </div>
+      <div className="mt-8 flex flex-col md:flex-row justify-center items-center gap-6 text-center md:text-left">
+        <p className="text-white/90 md:mr-4">
+          You can also contact us directly:
+        </p>
+
+        <div className="flex flex-col md:flex-row gap-4 items-center">
+          <p className="text-white font-semibold">
+            Email:{" "}
+            <a
+              href="mailto:info@flutix.com"
+              className="underline hover:text-indigo-300"
+            >
+              info@flutix.com
+            </a>
+          </p>
+          <p className="text-white font-semibold">
+            Phone:{" "}
+            <a
+              href="tel:+1234567890"
+              className="underline hover:text-indigo-300"
+            >
+              +93 700 000 000
+            </a>
+          </p>
+        </div>
       </div>
     </section>
   );
