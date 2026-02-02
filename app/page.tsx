@@ -3,6 +3,7 @@
 import { Card, CardContent } from "./components/ui/card";
 import { Button } from "./components/ui/button";
 import ContactUs from "./contact/page";
+import AboutUs from "./about/page";
 import { Smartphone, Layers, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 import { JSX } from "react";
@@ -16,7 +17,7 @@ export default function Home(): JSX.Element {
       {/* Navbar */}
       <Navbar />
 
-      <main className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white pt-16">
+      <main className="min-h-screen bg-linear-to-br from-indigo-600 via-purple-600 to-pink-600 text-white pt-16">
         {/* Hero Section */}
         <section className="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -37,8 +38,12 @@ export default function Home(): JSX.Element {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-2xl text-white border-white"
-              >
+                className="rounded-2xl text-white border-white" onClick={() => {
+                  const contactSection = document.getElementById("contact");
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>
                 Contact Us
               </Button>
             </div>
@@ -61,7 +66,7 @@ export default function Home(): JSX.Element {
         </section>
 
         {/* Services Section */}
-        <section className="bg-white text-gray-900 py-20">
+        <section className="bg-white text-gray-900 py-20" id="service">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center mb-12">What We Do</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -97,6 +102,8 @@ export default function Home(): JSX.Element {
             </div>
           </div>
         </section>
+           {/* About us Section */}
+        <AboutUs />
         {/* Contact Section */}
         <ContactUs />
 
