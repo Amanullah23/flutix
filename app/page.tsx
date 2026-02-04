@@ -8,6 +8,9 @@ import Footer from "./components/footer";
 import { Smartphone, Layers, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 import { JSX } from "react";
+import ProductSection from "./components/productSection";
+
+
 
 // Import the Navbar component
 import Navbar from "./components/navbar";
@@ -105,6 +108,9 @@ export default function Home(): JSX.Element {
         </section>
            {/* About us Section */}
         <AboutUs />
+        {/* Products Section */}
+<ProductSection />
+
         {/* Contact Section */}
         <ContactUs />
                 
